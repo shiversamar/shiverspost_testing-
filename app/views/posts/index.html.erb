@@ -1,0 +1,8 @@
+<% @posts.each do |post| %>
+  <h2><%=post.title %></h2>
+  <%= link_to "View Post", post_path(post), class: "btn btn-info" %>
+<% end %>
+
+<%= link_to "New Post", new_post_path %>
+
+<!-- loop thru and we can access in index cause we define it in our post controller def index @posts   -->

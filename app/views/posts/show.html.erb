@@ -1,0 +1,11 @@
+<!-- output our post and title and body since we def it show, localhost/posts/1, localhost/posts/2 -->
+
+<h2><%= @post.title %></h2>
+<p><%= @post.body %></p>
+
+
+<%= link_to "Back Post", root_path, class: "btn btn-info" %>
+
+<%= link_to "Edit Post", edit_post_path(@post), class: "btn btn-info" %>
+
+<%= link_to "Delete Post",post_path(@post), method: :delete, data: { confirm: "Are You Sure?"}, class: "btn btn-info" %>

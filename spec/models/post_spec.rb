@@ -1,17 +1,30 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+RSpec.describe Post, type: :model do
   it 'is a thing' do
-    expect{User.new}.to_not raise_error
+    expect{Post.new}.to_not raise_error
   end
 
-  it 'has name has name and email' do
-    user = User.new
-    user.name = 'Bill Nye'
-    user.email = 'BillNye@scienceGuy.com'
-    expect(user.save).to eq true
-    u2 = User.find_by_name 'Bill Nye'
-    expect(u2.name).to eq 'Bill Nye'
-    expect(u2.email).to eq 'BillNye@scienceGuy.com'
+  it 'has name has title and body' do
+    post = Post.new
+    post.title = 'Test Title'
+    post.body = 'Test Body'
+    expect(post.save).to eq true
+    p2 = Post.find_by_title 'Test Title'
+    expect(p2.title).to eq 'Test Title'
+    expect(p2.body).to eq 'Test Body'
   end
-end
+
+  it 'is not valid with a title longer than 100 symbols' do
+    post = Post.new(title: 'a' * 101)
+    expect(post).not_to be_valid
+  end
+
+
+  it 'is valid with proper data' do
+    post = Post.new(title: 'a' * 50)
+    expect(post).to be_valid
+  end
+
+
+end#Rspec
