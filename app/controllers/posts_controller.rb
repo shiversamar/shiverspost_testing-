@@ -15,13 +15,16 @@ class PostsController < ApplicationController
 
 
   def new
-    @post = Post.new
+    # @post = Post.new this action are no longer applicable since we associate the two model the User and Post model that user signed in that make a post
+    @post = current_user.posts.build
+
   end
 
   # same thing with post it just we passing post params and permit actions since we gonna using it all action just put in private, we dont have template form html to list the title and body instead we will gonna redirect to root_path which is index.html.erb
   def create
-    # @post = Post.new(params.require(:post).permit(:title,:body))
-    @post = Post.new(post_params)
+    # @post = Post.new(params.require(:post).permit(:title,:body)) not to declared in it since we have a private action
+    # @post = Post.new(post_params) this formula need to update since we associate user id model to post model and attack in rails console to associate previous post to current_user
+    @post = current_user.posts.build(post_params)
     if @post.save
       redirect_to root_path
     else
