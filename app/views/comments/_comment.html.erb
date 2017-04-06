@@ -1,0 +1,21 @@
+<p><%= comment.body %></p>
+
+<p>Posted by :<%=comment.user.email %> <%= time_ago_in_words(comment.created_at) %> ago </p>
+
+<!-- checking if the user_signed_in? then we will check if the comment.user_id is equal to current_user.id then display the Edit and Delete button. -->
+
+<% if user_signed_in? %>
+  <% if comment.user_id == current_user.id %>
+    <%= link_to "Edit", edit_post_comment_path(comment.post, comment) %>
+    <%= link_to "Delete", post_comment_path(comment.post, comment), method: :delete, data: { confirm: "Are You Sure?" } %>
+  <% end %>
+<% end %>
+
+
+
+
+<!-- <p><%= comment.body %></p> The _comment.html.erb partial file provides the structure for each comment in @post.comments is getting comment content body-->
+
+ <!-- comment.post corresponds to the post that the comments are for   and comment represents the individual comment. remember, we are in _comment.html.erb partial file-->
+
+<!-- if we are trying to edit the comment of a post (which has an id of 3), the URL we would try to get is /posts/3/comments/1  while  comment.post gets/posts/3/comment gets/comments/1  -->

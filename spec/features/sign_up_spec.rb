@@ -6,7 +6,7 @@ RSpec.feature "SignUp", type: :feature do
     end
 
     scenario "Signing in with correct credentials" do
-      visit '/'
+      visit 'devise/sessions#new'
       within("Sign Up") do
         fill_in 'first_name', with: 'user_first'
         fill_in 'last_name', with: 'user_last'
