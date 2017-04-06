@@ -1,32 +1,29 @@
+<% provide(:page_title, @post.title) %>
+
 <!-- output our post and title and body since we def it show, localhost/posts/1, localhost/posts/2 -->
+<div class="col-md-8 col-md-offset-2">
+  <div class="message-show">
+    <h2><%= @post.title %></h2>
+    <p class="message-posted-by">Posted by:<%= @post.user.email %> <%= time_ago_in_words(@post.created_at) %> ago</p>
+    <p class="message-desc"><%= @post.body %></p>
+    <!-- The is where the _comment.html.erb partial file is rendered for each comment  -->
+    <h3>Comments:</h3>
+    <p><%= render @post.comments %></p>
 
-<h1>show index</h1>
-<h2><%= @post.title %></h2>
-  <p>Posted by:<%= @post.user.email %> <%= time_ago_in_words(@post.created_at) %> ago</p>
-<p><%= @post.body %></p>
-
-
-
-
-
-
-<!-- The is where the _comment.html.erb partial file is rendered for each comment  -->
-<h3>Comments:</h3>
-<p><%= render @post.comments %></p>
+     <!-- render comment or reply form to show on post page -->
+    <h3 class="reply-to-msg">Reply to Post:</h3>
+    <%= render 'comments/form' %>
 
 
- <!-- render comment or reply form to show on post page -->
-<h3>Reply to Post:</h3>
-<%= render 'comments/form' %>
-
-
-
-<!-- if the post who created equal to current user id then we will display Edit and Delete and if not we end but we need to check if the user_signed_in to display the all post -->
-
-<%= link_to "Back Post", root_path, class: "btn btn-info" %>
-<% if user_signed_in? %>
-  <% if @post.user_id == current_user.id %>
-    <%= link_to "Edit Post", edit_post_path(@post), class: "btn btn-info" %>
-    <%= link_to "Delete Post",post_path(@post), method: :delete, data: { confirm: "Are You Sure?"}, class: "btn btn-info" %>
-  <% end %>
-<% end %>
+      <!-- if the post who created equal to current user id then we will display Edit and Delete and if not we end but we need to check if the user_signed_in to display the all post -->
+    <div class="links btn-group">
+      <%= link_to "Back", root_path, class: "btn btn-success" %>
+      <% if user_signed_in? %>
+        <% if @post.user_id == current_user.id %>
+          <%= link_to "Edit", edit_post_path(@post), class: "btn btn-success" %>
+          <%= link_to "Delete",post_path(@post), method: :delete, data: { confirm: "Are You Sure?"}, class: "btn btn-success" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

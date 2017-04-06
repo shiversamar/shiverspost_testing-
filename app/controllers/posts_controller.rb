@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
 
   def index
-    @posts = Post.all.order("created_at DESC")
+    @posts = Post.all.order("created_at DESC").paginate(page:params[:page],per_page:8)
   end
   # @post denotes an instance variable and is therefore available to use in our view files(html.erb)
 
@@ -63,8 +63,5 @@ class PostsController < ApplicationController
     def find_post
       @post = Post.find(params[:id])
     end
-
-
-
 
 end

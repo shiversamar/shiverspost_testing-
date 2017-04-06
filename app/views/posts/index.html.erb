@@ -1,10 +1,17 @@
-<h1>Index html</h1>
-
+<% provide(:page_title,'All Posts') %>
 <% @posts.each do |post| %>
-  <h2><%=post.title %></h2>
-  <%= link_to "View Post", post_path(post), class: "btn btn-info" %>
+  <div class="col-md-4">
+    <div class="message">
+      <h2 class="message-title"><%=post.title %></h2>
+      <p id="author">Author : <%= post.user.last_name %></p>
+        <%= link_to "View Post", post_path(post), class: "btn btn-success" %>
+    </div>
+  </div>
 <% end %>
 
-<%= link_to "New Post", new_post_path %>
+<!-- link_to "New Post", new_post_path %> delete since we have nav bar  -->
 
 <!-- loop thru and we can access in index cause we define it in our post controller def index @posts   -->
+  <div class="pagination pagination-centered">
+    <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+  </div>

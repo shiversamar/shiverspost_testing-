@@ -1,17 +1,17 @@
-<p><%= comment.body %></p>
+  <div class="comment">
+    <p class="comment-content"><%= comment.body %></p>
+    <p class="comment-posted-by">Posted by :<%=comment.user.email %> <%= time_ago_in_words(comment.created_at) %> ago </p>
 
-<p>Posted by :<%=comment.user.email %> <%= time_ago_in_words(comment.created_at) %> ago </p>
-
-<!-- checking if the user_signed_in? then we will check if the comment.user_id is equal to current_user.id then display the Edit and Delete button. -->
-
-<% if user_signed_in? %>
-  <% if comment.user_id == current_user.id %>
-    <%= link_to "Edit", edit_post_comment_path(comment.post, comment) %>
-    <%= link_to "Delete", post_comment_path(comment.post, comment), method: :delete, data: { confirm: "Are You Sure?" } %>
-  <% end %>
-<% end %>
-
-
+    <!-- checking if the user_signed_in? then we will check if the comment.user_id is equal to current_user.id then display the Edit and Delete button. -->
+    <div class="links">
+      <% if user_signed_in? %>
+        <% if comment.user_id == current_user.id %>
+          <%= link_to "Edit", edit_post_comment_path(comment.post, comment), class: "btn btn-success" %>
+          <%= link_to "Delete", post_comment_path(comment.post, comment), method: :delete, data: { confirm: "Are You Sure?" }, class: "btn btn-success"%>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 
 
 <!-- <p><%= comment.body %></p> The _comment.html.erb partial file provides the structure for each comment in @post.comments is getting comment content body-->

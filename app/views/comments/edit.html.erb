@@ -1,9 +1,9 @@
-<h1>Edit Comment</h1>
-
-<%= simple_form_for([@post, @comment]) do |f| %>
-  <%= f.input :body, label: "Comment" %>
-  <%= f.button :submit %>
-<% end %>
-
+<div class="col-md-8 col-md-offset-2">
+  <h1>Edit Comment</h1>
+  <%= simple_form_for([@post, @comment]) do |f| %>
+    <%= f.input :body, label: "Comment" %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
 
 <!-- Since we define find_post and find_comment we will just accessing that in here  -->
