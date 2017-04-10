@@ -37,6 +37,10 @@ group :test do
   gem 'rspec-example_steps'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'shoulda'
+  gem 'factory_girl_rails'
+  gem 'autotest'
+  gem 'rails-controller-testing', '~> 0.0.3'
 end
 
 

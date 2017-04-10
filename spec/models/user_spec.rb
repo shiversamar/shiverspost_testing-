@@ -20,4 +20,4 @@ RSpec.describe User, type: :model do
       expect(u2.email).to eq 'user@example.com'
       expect(u2.password) == 'caplin'
     end
-end
+end#Rspec

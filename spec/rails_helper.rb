@@ -7,6 +7,8 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'      # add this line
 require 'rspec/example_steps' # add this line
+require 'capybara/rspec'
+
 
 # Add additional requires below this line. Rails is not loaded until this point!
 

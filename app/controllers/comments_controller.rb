@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
 
 
 def create
-  # creates a comment with respect to the message
+  # creates a comment with respect to the message and redirect_to posts#show
   @post = Post.find(params[:post_id])
   @comment = @post.comments.create(comment_params)
   @comment.user_id = current_user.id

@@ -1,4 +1,4 @@
-<%= simple_form_for @post, url: posts_path do |f| %>
+<%= simple_form_for @post do |f| %>
   <% if @post.errors.any? %>
   		<div id="errors">
   			<h2><%= pluralize(@post.errors.count, "error") %> prevented this post from saving:</h2>
@@ -9,7 +9,7 @@
   			</ul>
   		</div>
   	<% end %>
-  <%= f.input :title, label: "Post Title" %>
+  <%= f.input :title, label: "Title" %>
   <%= f.input :body %>
   <%= f.button :submit %>
 <% end %>
