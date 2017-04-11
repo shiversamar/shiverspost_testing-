@@ -41,6 +41,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'autotest'
   gem 'rails-controller-testing', '~> 0.0.3'
+  gem 'pry'
 end
 
 

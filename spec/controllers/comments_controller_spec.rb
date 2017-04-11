@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+
 RSpec.describe CommentsController, type: :controller do
     before do
         @comment = Comment.new(body:'trial testing for comment', post_id:4, user_id:2)
@@ -27,8 +28,6 @@ RSpec.describe CommentsController, type: :controller do
           it 'redirects to the new comment' do
             @post = attributes_for(:comment)
             post :create, comment: @post
-
-
             expect(response).to redirect_to posts_path(@post)
           end
         end
