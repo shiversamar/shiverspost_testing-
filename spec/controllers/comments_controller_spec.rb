@@ -12,8 +12,6 @@ RSpec.describe CommentsController, type: :controller do
         it { should respond_to(:user_id) }
       end
 
-
-
         describe 'POST create' do
 
           it 'create a new comment with valid user' do

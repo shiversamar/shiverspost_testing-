@@ -4,7 +4,7 @@
     <div class="message">
       <h2 class="message-title"><%=post.title %></h2>
       <p id="author">Author : <%= post.user.last_name %></p>
-        <%= link_to 'View Post', post_path(post), class: "btn btn-success" %>
+      <%= link_to 'View Post', post_path(post), class: "btn btn-success" %>
     </div>
   </div>
 <% end %>

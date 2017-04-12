@@ -5,14 +5,12 @@ RSpec.describe Post, type: :model do
     expect{Post.new}.to_not raise_error
   end
 
-  it 'has name has title and body' do
+  it 'has name has title,body and user_id' do
     post = Post.new
     post.title = 'Test Title'
     post.body = 'Test Body'
+    post.user_id = 1
     expect(post.save). == true
-    p2 = Post.find_by_title 'Test Title'
-    expect(p2.title).to eq 'Test Title'
-    expect(p2.body).to eq 'Test Body'
   end
 
   it 'is not valid with a title longer than 100 symbols' do
@@ -20,12 +18,21 @@ RSpec.describe Post, type: :model do
     expect(post).not_to be_valid
   end
 
-  it 'post include current_user' do
-    user1 = User.new('User1')
-    post = Post.new(title: 'Test Title', body: 'Test Body', users:[User])
-    post.users.should include(user1)
-    # post.users.should have(1).users
-  end
+
+    let(:user) { create(:user) }
+    let(:post) { create(:post, user: user) }
+
+    it 'has title body and user_id' do
+        expect(post.title).to_not be_nil
+        expect(post.body).to_not be_nil
+        expect(post.user).to_not be_nil
+    end
+
+
+
+
+
+
 
 
 

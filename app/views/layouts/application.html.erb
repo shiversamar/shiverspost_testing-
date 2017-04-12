@@ -22,7 +22,6 @@
               <% end %>
 
           </div>
-
             <ul class="navbar-nav nav">
               <li id="sign_up"><%= link_to "Sign Up", new_user_registration_path %></li>
               <% if user_signed_in? %>
@@ -32,9 +31,9 @@
               <% end %>
             </ul>
             <!-- if user_signed_in they have access or just link to create new post  -->
-                  <% if user_signed_in? %>
-                  <p><%= link_to "New Post", new_post_path, class: "navbar-right navbar-text navbar-link" %></p>
-                    <% end %>
+              <% if user_signed_in? %>
+              <p><%= link_to "New Post", new_post_path, class: "navbar-right navbar-text navbar-link" %></p>
+                <% end %>
       </div>
     </div>
 

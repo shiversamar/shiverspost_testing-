@@ -35,4 +35,5 @@ RSpec.feature "SignUp", type: :feature do
       expect(page).to have_content 'Invalid email or password'
     end
 
+
 end#RSpec
