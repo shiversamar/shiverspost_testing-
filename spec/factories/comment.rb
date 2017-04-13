@@ -4,7 +4,7 @@ FactoryGirl.define do
     post
     user
 
-# sometime we dont want association
+# if we dont want association
     trait :no_post do
         post_id nil
     end
