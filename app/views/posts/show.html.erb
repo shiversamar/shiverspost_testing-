@@ -7,6 +7,14 @@
     <p class="message-posted-by">Posted by:<%= @post.user.email %> <%= time_ago_in_words(@post.created_at) %> ago</p>
     <p class="message-desc"><%= @post.body %></p>
     <!-- The is where the _comment.html.erb partial file is rendered for each comment  -->
+
+    <!-- Add image to show page grabing file path -->
+	 <%= image_tag @post.image.url(:medium) %>
+
+
+
+
+
     <h3>Comments:</h3>
     <p><%= render @post.comments %></p>
 
