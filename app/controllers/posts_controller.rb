@@ -41,7 +41,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(params[:post].permit(:title, :body, :image))
-      redirect_to post_path
+      format.html { redirect_to post_path, notice: 'Post was successfully updated.' }
     else
       render 'edit'
     end
